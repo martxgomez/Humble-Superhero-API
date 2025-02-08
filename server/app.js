@@ -1,6 +1,6 @@
 //IMPORTS
 const express = require("express");
-const Superhero = require("./Superhero)");
+const Superhero = require("./Superhero.js")
 const PORT = 3000;
 
 const app = express();
