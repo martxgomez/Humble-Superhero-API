@@ -1,9 +1,10 @@
 //IMPORTS
 const express = require("express");
-const Superhero = require("./Superhero.js")
+const Superhero = require("./Superhero.js");
 const PORT = 3000;
 
 const app = express();
+app.use(express.json());
 
 //ARRAY OF SUPERHEROES
 const superheroesDB = [
@@ -20,7 +21,6 @@ const superheroesDB = [
 ];
 
 //ROUTES
-
 app.get("/superheroes", (req, res) => {
   //Sort by humility score in descending order
   const sortedSuperheroes = superheroesDB.sort(
@@ -43,10 +43,9 @@ app.post("/superheroes", (req, res) => {
       superhero: newSuperhero,
     });
   }
-
 });
 
 //START SERVER
 app.listen(PORT, () => {
-    console.log(`Server listening on port ${PORT}`);
-  });
+  console.log(`Server listening on port ${PORT}`);
+});
