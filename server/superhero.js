@@ -19,4 +19,4 @@ class Superhero {
   }
 }
 
-const superhero = new Superhero();
+module.exports = Superhero;
