@@ -14,7 +14,10 @@ function App() {
   return (
    <>
   <Routes>
-    
+  <Route
+            path="/add-superhero"
+            element={<Form superheroes={superheroes} setSuperheroes={setSuperheroes}/>}
+          />
   </Routes>
    </>
   )
