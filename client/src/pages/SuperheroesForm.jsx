@@ -1,6 +1,8 @@
+/* eslint-disable react/prop-types */
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./SuperheroesForm.css";
+// import "./SuperheroesForm.css";
 
 function SuperheroesForm({ superheroes, setSuperheroes }) {
   //Variables creation
@@ -53,7 +55,7 @@ function SuperheroesForm({ superheroes, setSuperheroes }) {
 
         <input
           id="humility-score"
-          onChange={(e) => setHumilityScore(e.target.value)}
+          onChange={(e) => setHumilityScore(Number(e.target.value))}
           value={humilityScore}
           type="number"
           min="1"
