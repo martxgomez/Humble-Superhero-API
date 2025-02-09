@@ -40,42 +40,44 @@ function SuperheroesForm({ superheroes, setSuperheroes }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="form" onSubmit={handleSubmit}>
       <div>
         <h2>Create a new Superhero</h2>
 
-        <label htmlFor="name">Name:</label>
-        <input
-          onChange={(e) => {
-            setName(e.target.value);
-          }}
-          value={name}
-          id="name"
-          type="text"
-        />
+        <section className="inputs">
+          <label htmlFor="name">Name:</label>
+          <input
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
+            value={name}
+            id="name"
+            type="text"
+          />
 
-        <label htmlFor="superpower">Superpower:</label>
-        <input
-          onChange={(e) => {
-            setSuperpower(e.target.value);
-          }}
-          value={superpower}
-          id="superpower"
-          type="text"
-        />
-        <label htmlFor="humilityScore">Humility Score:</label>
-        <input
-          id="humility-score"
-          onChange={(e) => setHumilityScore(Number(e.target.value))}
-          value={humilityScore}
-          type="number"
-          min="1"
-          max="10"
-        />
+          <label htmlFor="superpower">Superpower:</label>
+          <input
+            onChange={(e) => {
+              setSuperpower(e.target.value);
+            }}
+            value={superpower}
+            id="superpower"
+            type="text"
+          />
+          <label htmlFor="humilityScore">Humility Score:</label>
+          <input
+            id="humility-score"
+            onChange={(e) => setHumilityScore(Number(e.target.value))}
+            value={humilityScore}
+            type="number"
+            min="1"
+            max="10"
+          />
 
-        <button className="submit-btn" type="submit">
-          Add Superhero
-        </button>
+          <button className="submit-btn" type="submit">
+            Add Superhero
+          </button>
+        </section>
       </div>
     </form>
   );
