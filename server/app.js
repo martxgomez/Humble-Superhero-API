@@ -1,10 +1,12 @@
 //IMPORTS
 const express = require("express");
+const cors = require("cors");
 const Superhero = require("./Superhero.js");
 const PORT = 3000;
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 //ARRAY OF SUPERHEROES
 const superheroesDB = [
@@ -37,6 +39,7 @@ app.post("/superheroes", (req, res) => {
     res.status(500).json({ error: "Failed to create the Superhero" });
   } else {
     const newSuperhero = new Superhero(name, superpower, humilityScore);
+
     superheroesDB.push(newSuperhero);
     res.status(201).json({
       message: "Superhero created sucessfully",

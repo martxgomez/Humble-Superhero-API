@@ -2,6 +2,8 @@
 import { Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { BrowserRouter as Router } from "react-router-dom";
+
 
 //ROUTES
 import SuperheroesForm from "./pages/SuperheroesForm";
@@ -31,8 +33,9 @@ function App() {
 
   return (
     <>
+    <Router>
       <Routes>
-        {/* <Route
+        <Route
           path="/"
           element={
             <SuperheroesPage
@@ -40,7 +43,7 @@ function App() {
               setSuperheroes={setSuperheroes}
             />
           }
-        /> */}
+        />
         <Route
           path="/add-superhero"
           element={
@@ -51,6 +54,7 @@ function App() {
           }
         />
       </Routes>
+      </Router>
     </>
   );
 }

@@ -1,7 +1,11 @@
 /* eslint-disable react/prop-types */
 
+//HOOKS
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
+//STYLE
 // import "./SuperheroesForm.css";
 
 function SuperheroesForm({ superheroes, setSuperheroes }) {
@@ -13,7 +17,7 @@ function SuperheroesForm({ superheroes, setSuperheroes }) {
   //Hook creation to navigate
   const navigate = useNavigate();
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault(); //to prevent form behavior from reloading the page
 
     const newSuperhero = {
@@ -22,10 +26,17 @@ function SuperheroesForm({ superheroes, setSuperheroes }) {
       humilityScore,
     };
 
-    setSuperheroes([...superheroes, newSuperhero]);
+    try {
+      await axios.post("http://localhost:3000/superheroes", newSuperhero);
+      const response = await axios.get("http://localhost:3000/superheroes");
 
-    //Redirect to main page
-    navigate("/superheroes");
+      setSuperheroes([...superheroes, response.data.superhero]);
+
+      //Redirect to main page
+      navigate("/");
+    } catch (error) {
+      console.error("Error creating superhero:", error);
+    }
   }
 
   return (
@@ -52,7 +63,7 @@ function SuperheroesForm({ superheroes, setSuperheroes }) {
           id="superpower"
           type="text"
         />
-
+        <label htmlFor="humilityScore">Humility Score:</label>
         <input
           id="humility-score"
           onChange={(e) => setHumilityScore(Number(e.target.value))}
