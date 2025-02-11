@@ -5,8 +5,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-//STYLE
-// import "./SuperheroesForm.css";
 
 function SuperheroesForm({ superheroes, setSuperheroes }) {
   //Variables creation
@@ -14,7 +12,7 @@ function SuperheroesForm({ superheroes, setSuperheroes }) {
   const [superpower, setSuperpower] = useState("");
   const [humilityScore, setHumilityScore] = useState(0);
 
-  //Hook creation to navigate
+  //Hook to navigate
   const navigate = useNavigate();
 
   async function handleSubmit(event) {
@@ -33,7 +31,7 @@ function SuperheroesForm({ superheroes, setSuperheroes }) {
       setSuperheroes([...superheroes, response.data.superhero]);
 
       //Redirect to main page
-      navigate("/");
+      navigate("/superheroes");
     } catch (error) {
       console.error("Error creating superhero:", error);
     }

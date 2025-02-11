@@ -37,7 +37,7 @@ function App() {
     <h1>Humble Superhero API</h1>
       <Routes>
         <Route
-          path="/"
+          path="/superheroes"
           element={
             <SuperheroesPage
               superheroes={superheroes}
