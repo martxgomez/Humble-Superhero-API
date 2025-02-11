@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 
-function SuperheroesForm({ superheroes, setSuperheroes }) {
+function SuperheroesForm({ setSuperheroes }) {
   //Variables creation
   const [name, setName] = useState("");
   const [superpower, setSuperpower] = useState("");
@@ -16,7 +16,8 @@ function SuperheroesForm({ superheroes, setSuperheroes }) {
   const navigate = useNavigate();
 
   async function handleSubmit(event) {
-    event.preventDefault(); //to prevent form behavior from reloading the page
+    //To prevent form behavior from reloading the page
+    event.preventDefault(); 
 
     const newSuperhero = {
       name,
@@ -27,8 +28,10 @@ function SuperheroesForm({ superheroes, setSuperheroes }) {
     try {
       await axios.post("http://localhost:3000/superheroes", newSuperhero);
       const response = await axios.get("http://localhost:3000/superheroes");
+      console.log(newSuperhero)
 
-      setSuperheroes([...superheroes, response.data.superhero]);
+      setSuperheroes((prev)=>[...prev, response.data.superhero]);
+      console.log(response.data)
 
       //Redirect to main page
       navigate("/superheroes");

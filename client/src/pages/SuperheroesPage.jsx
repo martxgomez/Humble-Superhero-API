@@ -7,6 +7,11 @@ function SuperheroesPage({ superheroes }) {
       <Link to="/add-superhero" className="form-btn">
         Add a superhero 🦸🏻
       </Link>
+
+      {/* Here there is a problem when you create a new Superhero.
+      After creating a new Superhero, you are redirected to this page. 
+      However it has not been renderized for any reason. I need more time to solve it. 
+      Nevertheless, this new superhero is being saved into the array, therefore that indicates is not a backend problem*/}
       {superheroes.map((superhero) => {
         return (
           <div className="superhero-card" key={superhero.id}>

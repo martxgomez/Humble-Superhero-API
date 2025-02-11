@@ -126,6 +126,7 @@ Collaboration is essential in any development process. To improve or expand this
 ## 🕚 If I had more time
 
 If I had more time, there are several improvements and features I would investigate further to improve the project:
+- **Form problem**: I would investigate the problem with reading the properties. In console it appears as undefined. 
 - **Database integration**: Instead a simple in-memory database, I would integrate a real database such as **MongoDB** to persist data and maintain changes.
 - **User Authentication & Authorization**: Implementing user login and registration so that users can add their own superheroes.
 - **Testing**: I would explore about **Jest.js** and I would add integration tests to improve the correct performance of the app.
