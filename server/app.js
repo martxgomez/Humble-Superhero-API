@@ -35,8 +35,8 @@ app.get("/superheroes", (req, res) => {
 app.post("/superheroes", (req, res) => {
   const { name, superpower, humilityScore } = req.body;
 
-  //Condition if name, superpower or humility score fields do not exist
-  if (!name || !superpower || !humilityScore) {
+  //Condition if name, superpower or humility score fields do not exist or they are empty
+  if (!name || name.length===0 || !superpower || superpower.length===0 || !humilityScore) {
     res.status(400).json({ error: "Failed to create the Superhero" });
   } else {
     const newSuperhero = new Superhero(
